@@ -1,0 +1,41 @@
+version: "3"
+services:
+  web:
+    image: nginx:latest
+    networks:
+      - frontend
+    ports:
+      - "8089:80"
+    volumes:
+      - ./dist/blog:/var/www
+      - ./data/conf/nginx.conf:/etc/nginx/conf.d/blog.conf
+    links:
+      - php
+  php:
+    image: php:7-fpm
+    working_dir: /var/www
+    command: php -S 0.0.0.0:9090 -t public public/index.php
+    environment:
+      docker: "true"
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "9090:9090"
+    volumes:
+      - .:/var/www
+  ng:
+    image: node:10
+    command: npm run ci
+    volumes:
+      - .:/usr/src/app
+  mysql:
+    image: mariadb:10.2
+    networks:
+      - backend
+
+networks:
+  frontend:
+    driver: bridge         
+  backend:
+    driver: bridge
