@@ -4,35 +4,54 @@ services:
     image: nginx:latest
     networks:
       - frontend
+      - backend
     ports:
       - "8089:80"
     volumes:
-      - ./dist/blog:/var/www
-      - ./data/conf/nginx.conf:/etc/nginx/conf.d/blog.conf
+      - ./dist/blog:/usr/share/nginx/html:ro
+      - ./data/conf/nginx.conf:/etc/nginx/conf.d/default.conf
     links:
-      - php
-  php:
+      - php-fpm
+      - angular
+  php-fpm:
     image: php:7-fpm
     working_dir: /var/www
-    command: php -S 0.0.0.0:9090 -t public public/index.php
+    command: php -S 0.0.0.0:90 index.php
     environment:
       docker: "true"
     networks:
-      - frontend
       - backend
     ports:
-      - "9090:9090"
+      - "8090:90"
     volumes:
       - .:/var/www
-  ng:
-    image: node:10
-    command: npm run ci
+    links:
+      - composer
+  composer:
+    image: composer
+    command: composer install
+    volumes:
+      - .:/app
+  angular:
+    build: .
+    command: ng build
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "8091:4200"
+    networks:
+      - frontend
   mysql:
     image: mariadb:10.2
     networks:
       - backend
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+
+volumes: 
+  logs:
+    driver: local
 
 networks:
   frontend:
