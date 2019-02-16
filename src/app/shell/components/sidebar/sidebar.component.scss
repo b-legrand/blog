@@ -1,0 +1,14 @@
+@import 'sass-breakpoints/index';
+
+.blog-sidebar {
+  line-height: 1.4em;
+}
+
+.blog-hero {
+  display: flex;
+  flex-direction: row;
+
+  @include breakpoint('md') {
+    flex-direction: column;
+  }
+}
