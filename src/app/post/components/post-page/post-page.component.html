@@ -1,4 +1,6 @@
 <main class="post">
-  <h2>{{ post.title}}</h2>
-  <blg-strip></blg-strip>
+  <blg-strip
+    *ngIf="post?.strip"
+    [strip]="post.strip"
+  ></blg-strip>
 </main>

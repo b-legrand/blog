@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Strip } from '../../models/strip.model';
 
 @Component({
   selector: 'blg-strip',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StripComponent implements OnInit {
 
+  @Input()
+  public strip: Strip;
+
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

@@ -10,6 +10,19 @@ export class CaseComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  handlePlay() {
+
+  }
+
+  handlePause() {
+
+  }
+
+  handleAppear() {
+
   }
 
 }

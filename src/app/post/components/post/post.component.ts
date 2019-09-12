@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Post } from 'src/app/core/model';
+import { Post } from '../../models/post.model';
+
 
 @Component({
   selector: 'blg-post',

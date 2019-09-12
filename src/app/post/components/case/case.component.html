@@ -1,5 +1,14 @@
 <svg:svg class="case"
-         tabindex="0">
+         tabindex="0"
+         (focus)="handlePlay($event)"
+         (blur)="handlePause($event)"
+         (mousemove)="handlePointMove($event)"
+         (mouseenter)="handlePointMove($event)"
+         (mouseleave)="handlePointMove($event)"
+         (pointerenter)="handlePointMove($event)"
+         (pointerleave)="handlePointMove($event)"
+         (mouseleave)="handlePointMove($event)"
+         ngClass="{focused: focused }">
   <defs>
     <mask id="mask1"
           x="0"
@@ -26,3 +35,5 @@
 <canvas #renderZone>
 
 </canvas>
+<img #imageFallback [src]=""/>
+

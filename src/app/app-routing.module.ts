@@ -4,15 +4,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from './pages/components/not-found-page/not-found-page.component';
 import { PostsPageComponent } from './pages/components/posts-page/posts-page.component';
 import { PagesModule } from './pages/pages.module';
+import { PostPageComponent } from './post/components/post-page/post-page.component';
 
 const routes: Routes = [
   {
-    path: 'post',
-    loadChildren: './post/post.module',
+    path: 'posts',
+    pathMatch: 'full',
+    component:  PostsPageComponent,
   },
   {
-    path: 'posts',
-    component:  PostsPageComponent,
+    path: 'post/:slug',
+    component:  PostPageComponent,
   },
   {
     path: '',

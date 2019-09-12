@@ -1,5 +1,5 @@
 
-import { Post, Strip } from '../model';
+import { Post, Strip } from '../../post/models';
 import * as faker from 'faker';
 
 export function stripFactory(): Strip {

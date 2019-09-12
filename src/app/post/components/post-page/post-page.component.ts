@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Post } from 'src/app/core/model';
+import { Component, OnInit, Input } from '@angular/core';
+import { Post } from '../../models/post.model';
 
 @Component({
   selector: 'blg-post-page',
@@ -8,6 +8,7 @@ import { Post } from 'src/app/core/model';
 })
 export class PostPageComponent implements OnInit {
 
+  @Input()
   public post: Post;
 
   constructor() { }

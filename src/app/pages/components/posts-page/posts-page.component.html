@@ -1,3 +1,6 @@
-<p>
-  posts-page works!
-</p>
+<h1 i18n>Posts</h1>
+<main>
+  <article *ngFor="let post of posts">
+    <blg-post [post]="post"></blg-post>
+  </article>
+</main>

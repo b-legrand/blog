@@ -1,0 +1,21 @@
+posts:
+  - 
+    content: "# First post\n Gotta start somewhere"
+    description:
+    strip:
+      - 
+  - 
+    content: "#title"
+
+tags: 
+  - "blog"
+  - "strip"
+  - "comic"
+  - "share"
+
+cases: 
+  strip-1-case1:
+    scene: 
+      camera:
+        pos: [0,0,0]
+
