@@ -96,7 +96,7 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "configPath":"./jest.config.js"
+            "configPath": "./jest.config.js"
           }
         },
         "lint": {
@@ -151,5 +151,8 @@
       }
     }
   },
-  "defaultProject": "blog"
+  "defaultProject": "blog",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
