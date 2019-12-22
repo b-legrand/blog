@@ -4,6 +4,7 @@ import { MockComponent } from 'ng-mocks';
 import { PostComponent } from './post.component';
 import { StripComponent } from '../strip/strip.component';
 import { Post, postFactory } from '../../models';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PostComponent', () => {
   let component: PostComponent;
@@ -12,6 +13,7 @@ describe('PostComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [PostComponent, MockComponent(StripComponent)],
+      imports: [RouterTestingModule],
     }).compileComponents();
   }));
 

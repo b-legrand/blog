@@ -1,0 +1,14 @@
+@import 'sass-breakpoints/index';
+
+.main-container {
+  min-height: 100vh;
+}
+
+.footer-container {
+  background: var(--grey-color);
+  color: var(--back-color);
+  .footer-main {
+    padding-top: 3em;
+    margin-top: 2em;
+  }
+}

@@ -1,16 +1,35 @@
 <aside class="blog-sidebar">
-  <div class="blog-hero">
-    <img
-      src="assets/self.svg"
-      [width]="size"
-      [height]="size"
-    />
-    <h1>{{ '3DBLG' }}</h1>
+  <div class="header-container">
+    <div class="page-margins">
+      <img
+        src="assets/self.svg"
+        [width]="size"
+        [height]="size"
+      />
+      <div class="header-tabs">
+        <div class="header-tab">
+          <h1>{{ '3DBLG' }}</h1>
+        </div>
+        <a
+          [routerLink]="['/posts']"
+          class="header-tab"
+        >posts</a>
+        <a
+          [routerLink]="['post','create']"
+          class="header-tab"
+        >create post</a>
+      </div>
+    </div>
   </div>
   <nav>
-    <ul>
-      <li *ngFor="let link of links">
-        <a [routerLink]="link.route">{{ link.name }}</a></li>
+    <ul class="sidebar-container">
+      <li
+        *ngFor="let link of links"
+        class="sidebar-button"
+      >
+        <a [routerLink]="link.route">
+          {{ link.label }}
+          <span class="sr-only">{{link.label}}</span></a></li>
     </ul>
   </nav>
 </aside>

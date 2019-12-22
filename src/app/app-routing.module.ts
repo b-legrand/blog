@@ -10,11 +10,24 @@ const routes: Routes = [
   {
     path: 'posts',
     pathMatch: 'full',
-    component:  PostsPageComponent,
+    component: PostsPageComponent,
+  },
+  {
+    path: 'post/first',
+    component: PostPageComponent,
+  },
+  {
+    path: 'post/create',
+    component: PostPageComponent,
+  },
+  {
+    path: 'post/last',
+    component: PostPageComponent,
   },
   {
     path: 'post/:slug',
-    component:  PostPageComponent,
+    component: PostPageComponent,
+    children: [{ path: '', pathMatch: 'full', component: PostPageComponent }],
   },
   {
     path: '',

@@ -3,26 +3,19 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'blg-case',
   templateUrl: './case.component.html',
-  styleUrls: ['./case.component.scss']
+  styleUrls: ['./case.component.scss'],
 })
 export class CaseComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  handlePlay() {}
 
+  handlePause() {}
+
+  handleAppear() {}
+  handlePointMove($event: Event) {
+    console.log('case event', $event);
   }
-
-  handlePlay() {
-
-  }
-
-  handlePause() {
-
-  }
-
-  handleAppear() {
-
-  }
-
 }
