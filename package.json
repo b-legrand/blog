@@ -31,6 +31,7 @@
     "@ngrx/router-store": "^8.6.0",
     "@ngrx/schematics": "^8.6.0",
     "@ngrx/store": "^8.6.0",
+    "@ngrx/store-devtools": "^8.6.0",
     "@nguniversal/module-map-ngfactory-loader": "^8.2.6",
     "ajv": "^6.10.2",
     "babylonjs": "^4.0.3",

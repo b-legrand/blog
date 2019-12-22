@@ -203,6 +203,10 @@ components:
         title:
           type: string
           description: "The title of the post"
+        strip:
+          type: array
+          items:
+            $ref: '#/components/schemas/Case'
         body:
           type: string
           description: "The body content of the post"
@@ -216,6 +220,19 @@ components:
           id: 1
           title: "The First Post"
           body: "we are building a blog post API using OpenAPI Specification."
+    Case:
+      type: object
+      properties:
+        id:
+          type: string
+        x:
+          type: string
+        y:
+          type: string
+      required:
+        - id
+        - x
+        - title
     PatchPost:
       type: object
       properties:
