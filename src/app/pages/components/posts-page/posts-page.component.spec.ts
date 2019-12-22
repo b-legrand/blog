@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PostsPageComponent } from './posts-page.component';
+import { MockComponent } from 'ng-mocks';
+import { PostComponent } from 'src/app/post/components/post/post.component';
+import { PostService } from 'src/app/core/services/post.service';
+import { of } from 'rxjs';
 
 describe('PostsPageComponent', () => {
   let component: PostsPageComponent;
@@ -8,9 +12,9 @@ describe('PostsPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostsPageComponent ]
-    })
-    .compileComponents();
+      declarations: [PostsPageComponent, MockComponent(PostComponent)],
+      providers: [{ provide: PostService, useValue: { posts$: of([])} }],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
