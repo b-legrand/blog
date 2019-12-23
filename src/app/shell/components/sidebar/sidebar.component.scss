@@ -27,6 +27,7 @@
     height: 2em;
     text-transform: uppercase;
     color: var(--back-color);
+    padding: 0 .5em;
     &:hover,
     &.active-tab {
       border-top-color: var(--blue-color);
@@ -42,22 +43,33 @@
 }
 .sidebar-container {
   display: flex;
-  padding: 15px;
+  padding: 15px 8%;
 }
 .sidebar-button:not(:nth-last-of-type()) {
   flex: 0 0 auto;
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
-.sidebar-button{
+.sidebar-button {
+  display: block;
   width: 1.5em;
   height: 1.5em;
   line-height: 1.5em;
-  &.center-bar{
-    
-  width: auto;
-  background:var(--dark-color);
+  margin-right: 0.5em;
+  &:last-child {
+    margin-right: 0;
   }
-  a{
+
+  display: block;
+  text-align: center;
+  border-radius: 3px;
+  background: var(--dark-color);
+
+  &.center-bar {
+    width: auto;
+    padding: 0 .5em;
+    background: var(--dark-color);
+  }
+  a {
     flex: 1 1 auto;
     align-self: center;
     text-decoration: none;

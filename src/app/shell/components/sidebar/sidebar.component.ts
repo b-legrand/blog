@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { v4 } from "uuid";
+import { v4 } from 'uuid';
 
 export interface Link {
   route: string;
   name: string;
   label?: string;
   children?: Link[];
+  class?: string;
 }
 
 @Component({
@@ -14,34 +15,8 @@ export interface Link {
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  public links: Link[] = [
-    {
-      route: 'posts/first',
-      label: '«',
-      name: 'first post',
-    },
-    {
-      route: 'posts/' + v4(),
-      label: '‹',
-      name: 'previous post',
-    },
-    {
-      route: 'category/strip',
-      name: 'Strips',
-      label: '1/1',
-      children: []
-    },
-    {
-      route: 'posts/next',
-      label: '›',
-      name: 'next post',
-    },
-    {
-      route: 'posts/last',
-      label: '»',
-      name: 'last post',
-    },
-  ];
+  public currentIndex = 1;
+  public lastIndex = 42;
 
   public title = '3DBLG';
 

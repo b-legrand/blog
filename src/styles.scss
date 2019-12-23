@@ -34,18 +34,26 @@ code {
   background-color: var(--back-color);
   color: var(--white-color);
 }
-
-button,
-a:link,
-a:active,
-a:focus,
-a:visited {
+// buttons
+button {
   background-color: var(--back-color);
   color: var(--grey-color);
   padding: 0 1em;
   border-radius: 0.5em;
 }
-
+// links
+a {
+  &:link,
+  &:active,
+  &:focus,
+  &:visited {
+    color: var(--grey-color);
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
 .page-margins {
   margin: 0 8%;
 }

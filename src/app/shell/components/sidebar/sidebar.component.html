@@ -23,13 +23,25 @@
   </div>
   <nav>
     <ul class="sidebar-container">
-      <li
-        *ngFor="let link of links"
-        class="sidebar-button"
-      >
-        <a [routerLink]="link.route" title="link.name">
-          {{ link.label }}
+      <li class="sidebar-button">
+        <a
+          i18n-title="post.links.first"
+          title="post.links.first"
+        >
+          «
         </a>
+      </li>
+      <li class="sidebar-button">
+        <a [routerLink]="['posts', 'previous']">‹</a>
+      </li>
+      <li class="sidebar-button center-bar">
+        <a [routerLink]="['posts']">{{ currentIndex }} / {{ lastIndex }}</a>
+      </li>
+      <li class="sidebar-button">
+        <a [routerLink]="['posts', 'next']">›</a>
+      </li>
+      <li class="sidebar-button">
+        <a [routerLink]="['posts', 'last']">»</a>
       </li>
     </ul>
   </nav>
