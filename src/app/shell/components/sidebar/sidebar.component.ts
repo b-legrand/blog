@@ -5,6 +5,7 @@ export interface Link {
   route: string;
   name: string;
   label?: string;
+  children?: Link[];
 }
 
 @Component({
@@ -15,22 +16,29 @@ export interface Link {
 export class SidebarComponent implements OnInit {
   public links: Link[] = [
     {
-      route: 'post/first',
-      label: '<<',
+      route: 'posts/first',
+      label: '«',
       name: 'first post',
     },
     {
-      route: 'post/' + v4(),
-      label: '<',
+      route: 'posts/' + v4(),
+      label: '‹',
       name: 'previous post',
     },
     {
       route: 'category/strip',
       name: 'Strips',
+      label: '1/1',
+      children: []
     },
     {
-      route: 'post/last',
-      label: '>>',
+      route: 'posts/next',
+      label: '›',
+      name: 'next post',
+    },
+    {
+      route: 'posts/last',
+      label: '»',
       name: 'last post',
     },
   ];

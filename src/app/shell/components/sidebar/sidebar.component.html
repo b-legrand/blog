@@ -27,9 +27,10 @@
         *ngFor="let link of links"
         class="sidebar-button"
       >
-        <a [routerLink]="link.route">
+        <a [routerLink]="link.route" title="link.name">
           {{ link.label }}
-          <span class="sr-only">{{link.label}}</span></a></li>
+        </a>
+      </li>
     </ul>
   </nav>
 </aside>

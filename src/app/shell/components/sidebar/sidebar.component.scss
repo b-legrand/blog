@@ -46,5 +46,20 @@
 }
 .sidebar-button:not(:nth-last-of-type()) {
   flex: 0 0 auto;
-  margin-right: 15px;
+  margin-right: .5em;
+}
+.sidebar-button{
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  &.center-bar{
+    
+  width: auto;
+  background:var(--dark-color);
+  }
+  a{
+    flex: 1 1 auto;
+    align-self: center;
+    text-decoration: none;
+  }
 }
