@@ -1,7 +1,6 @@
 openapi: 3.0.0
-
 info:
-  title: Blog Posts API
+  title: Blog API
   description: >
     This is an example API for blog posts using OpenApi Specification.
     
@@ -149,6 +148,7 @@ paths:
     get:
       tags:
         - Comments
+      operationId: getComments
       summary: Return comments
       description: Return comments on a post with postId={id}.
       parameters:

@@ -1,18 +1,38 @@
-build:
-	ng build --prod \
+userId = $(id -u ${USER})
+groupId = $(id -g ${USER})
 
-gen_openapi_srv:
+build:
+	npm run ng -- build --prod
+
+api_gen_srv:
 	docker run --rm \
+	-u ${USER}:${USER} \
 	-v ${PWD}:/local openapitools/openapi-generator-cli generate \
 	-i /local/blg-openapi.yml \
 	-g php-slim4 \
 	-o /local/dist/www
 
-gen_openapi_cli:
+api_gen_cli:
 	npm run api
-gen_openapi_doc:
+
+api_gen_doc:
 	docker run --rm \
+    	-u $(id -u ${USER}):$(id -g ${USER}) \
 		-v ${PWD}:/local openapitools/openapi-generator-cli generate \
 		-i /local/blg-openapi.yml \
 		-g markdown \
 		-o /local/dist/doc/api
+
+api:
+	make api_gen_cli
+	make api_gen_doc
+	make api_gen_srv
+
+test_e2e:
+	npm run e2e
+
+test_unit:
+	npm run jest -- --collectCoverage
+serve:
+	ng serve --hmr
+

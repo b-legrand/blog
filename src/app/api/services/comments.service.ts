@@ -22,19 +22,19 @@ export class CommentsService extends BaseService {
   }
 
   /**
-   * Path part for operation commentsGet
+   * Path part for operation getComments
    */
-  static readonly CommentsGetPath = '/comments';
+  static readonly GetCommentsPath = '/comments';
 
   /**
    * Return comments on a post with postId={id}.
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `commentsGet()` instead.
+   * To access only the response body, use `getComments()` instead.
    *
    * This method doesn't expect any request body.
    */
-  commentsGet$Response(params?: {
+  getComments$Response(params?: {
 
     /**
      * The postId which we want the comments
@@ -43,7 +43,7 @@ export class CommentsService extends BaseService {
 
   }): Observable<StrictHttpResponse<Comments>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CommentsService.CommentsGetPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, CommentsService.GetCommentsPath, 'get');
     if (params) {
 
       rb.query('postId', params.postId);
@@ -64,11 +64,11 @@ export class CommentsService extends BaseService {
    * Return comments on a post with postId={id}.
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `commentsGet$Response()` instead.
+   * To access the full response (for headers, for example), `getComments$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  commentsGet(params?: {
+  getComments(params?: {
 
     /**
      * The postId which we want the comments
@@ -77,7 +77,7 @@ export class CommentsService extends BaseService {
 
   }): Observable<Comments> {
 
-    return this.commentsGet$Response(params).pipe(
+    return this.getComments$Response(params).pipe(
       map((r: StrictHttpResponse<Comments>) => r.body as Comments)
     );
   }
