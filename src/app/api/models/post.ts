@@ -3,7 +3,7 @@ import { Case } from './case';
 export interface Post {
 
   /**
-   * The body content of the post
+   * The body content of the post in markdown format
    */
   body: string;
 

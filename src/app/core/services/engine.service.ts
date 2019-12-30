@@ -13,5 +13,6 @@ export class EngineService implements OnInit {
       preserveDrawingBuffer: true,
       stencil: true,
     });
+    this.engine$.next(engine);
   }
 }

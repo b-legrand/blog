@@ -15,6 +15,6 @@
     {{ post.content }}
   </section>
   <footer class="post-footer">
-    <a [routerLink]="['/post', post.uuid]">{{ post.createdAt | date }}</a>
+    <a [routerLink]="['/posts', post.uuid]" class="post-permalink">{{ post.createdAt | date }}</a>
   </footer>
 </article>

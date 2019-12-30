@@ -6,7 +6,6 @@ build:
 
 api_gen_srv:
 	docker run --rm \
-	-u ${USER}:${USER} \
 	-v ${PWD}:/local openapitools/openapi-generator-cli generate \
 	-i /local/blg-openapi.yml \
 	-g php-slim4 \
@@ -17,7 +16,6 @@ api_gen_cli:
 
 api_gen_doc:
 	docker run --rm \
-    	-u $(id -u ${USER}):$(id -g ${USER}) \
 		-v ${PWD}:/local openapitools/openapi-generator-cli generate \
 		-i /local/blg-openapi.yml \
 		-g markdown \

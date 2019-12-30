@@ -24,23 +24,23 @@ export class PostsService extends BaseService {
   }
 
   /**
-   * Path part for operation postsGet
+   * Path part for operation getPosts
    */
-  static readonly PostsGetPath = '/posts';
+  static readonly GetPostsPath = '/posts';
 
   /**
    * Return all the posts that are in our blog.
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `postsGet()` instead.
+   * To access only the response body, use `getPosts()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postsGet$Response(params?: {
+  getPosts$Response(params?: {
 
   }): Observable<StrictHttpResponse<Posts>> {
 
-    const rb = new RequestBuilder(this.rootUrl, PostsService.PostsGetPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, PostsService.GetPostsPath, 'get');
     if (params) {
 
 
@@ -60,36 +60,36 @@ export class PostsService extends BaseService {
    * Return all the posts that are in our blog.
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `postsGet$Response()` instead.
+   * To access the full response (for headers, for example), `getPosts$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postsGet(params?: {
+  getPosts(params?: {
 
   }): Observable<Posts> {
 
-    return this.postsGet$Response(params).pipe(
+    return this.getPosts$Response(params).pipe(
       map((r: StrictHttpResponse<Posts>) => r.body as Posts)
     );
   }
 
   /**
-   * Path part for operation postsPost
+   * Path part for operation createPost
    */
-  static readonly PostsPostPath = '/posts';
+  static readonly CreatePostPath = '/posts';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `postsPost()` instead.
+   * To access only the response body, use `createPost()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  postsPost$Response(params: {
+  createPost$Response(params: {
 
     body: Post
   }): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, PostsService.PostsPostPath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, PostsService.CreatePostPath, 'post');
     if (params) {
 
 
@@ -108,34 +108,34 @@ export class PostsService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `postsPost$Response()` instead.
+   * To access the full response (for headers, for example), `createPost$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  postsPost(params: {
+  createPost(params: {
 
     body: Post
   }): Observable<void> {
 
-    return this.postsPost$Response(params).pipe(
+    return this.createPost$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
 
   /**
-   * Path part for operation postsIdGet
+   * Path part for operation getPost
    */
-  static readonly PostsIdGetPath = '/posts/{id}';
+  static readonly GetPostPath = '/posts/{id}';
 
   /**
    * Return a post with postId equals to id.
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `postsIdGet()` instead.
+   * To access only the response body, use `getPost()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postsIdGet$Response(params: {
+  getPost$Response(params: {
 
     /**
      * The postId requested by user.
@@ -144,7 +144,7 @@ export class PostsService extends BaseService {
 
   }): Observable<StrictHttpResponse<Post>> {
 
-    const rb = new RequestBuilder(this.rootUrl, PostsService.PostsIdGetPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, PostsService.GetPostPath, 'get');
     if (params) {
 
       rb.path('id', params.id);
@@ -165,11 +165,11 @@ export class PostsService extends BaseService {
    * Return a post with postId equals to id.
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `postsIdGet$Response()` instead.
+   * To access the full response (for headers, for example), `getPost$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postsIdGet(params: {
+  getPost(params: {
 
     /**
      * The postId requested by user.
@@ -178,25 +178,25 @@ export class PostsService extends BaseService {
 
   }): Observable<Post> {
 
-    return this.postsIdGet$Response(params).pipe(
+    return this.getPost$Response(params).pipe(
       map((r: StrictHttpResponse<Post>) => r.body as Post)
     );
   }
 
   /**
-   * Path part for operation postsIdPut
+   * Path part for operation updatePost
    */
-  static readonly PostsIdPutPath = '/posts/{id}';
+  static readonly UpdatePostPath = '/posts/{id}';
 
   /**
    * A  complete replacement of a post with id.
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `postsIdPut()` instead.
+   * To access only the response body, use `updatePost()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  postsIdPut$Response(params: {
+  updatePost$Response(params: {
 
     /**
      * The postId requested by user.
@@ -206,7 +206,7 @@ export class PostsService extends BaseService {
     body: Post
   }): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, PostsService.PostsIdPutPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, PostsService.UpdatePostPath, 'put');
     if (params) {
 
       rb.path('id', params.id);
@@ -228,11 +228,11 @@ export class PostsService extends BaseService {
    * A  complete replacement of a post with id.
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `postsIdPut$Response()` instead.
+   * To access the full response (for headers, for example), `updatePost$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  postsIdPut(params: {
+  updatePost(params: {
 
     /**
      * The postId requested by user.
@@ -242,25 +242,25 @@ export class PostsService extends BaseService {
     body: Post
   }): Observable<void> {
 
-    return this.postsIdPut$Response(params).pipe(
+    return this.updatePost$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
 
   /**
-   * Path part for operation postsIdDelete
+   * Path part for operation deletePost
    */
-  static readonly PostsIdDeletePath = '/posts/{id}';
+  static readonly DeletePostPath = '/posts/{id}';
 
   /**
    * Deletes the post with id.
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `postsIdDelete()` instead.
+   * To access only the response body, use `deletePost()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postsIdDelete$Response(params: {
+  deletePost$Response(params: {
 
     /**
      * The postId requested by user.
@@ -269,7 +269,7 @@ export class PostsService extends BaseService {
 
   }): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, PostsService.PostsIdDeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, PostsService.DeletePostPath, 'delete');
     if (params) {
 
       rb.path('id', params.id);
@@ -290,11 +290,11 @@ export class PostsService extends BaseService {
    * Deletes the post with id.
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `postsIdDelete$Response()` instead.
+   * To access the full response (for headers, for example), `deletePost$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postsIdDelete(params: {
+  deletePost(params: {
 
     /**
      * The postId requested by user.
@@ -303,25 +303,25 @@ export class PostsService extends BaseService {
 
   }): Observable<void> {
 
-    return this.postsIdDelete$Response(params).pipe(
+    return this.deletePost$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
 
   /**
-   * Path part for operation postsIdPatch
+   * Path part for operation patchPost
    */
-  static readonly PostsIdPatchPath = '/posts/{id}';
+  static readonly PatchPostPath = '/posts/{id}';
 
   /**
    * Update the post with id partially.
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `postsIdPatch()` instead.
+   * To access only the response body, use `patchPost()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  postsIdPatch$Response(params: {
+  patchPost$Response(params: {
 
     /**
      * The postId requested by user.
@@ -331,7 +331,7 @@ export class PostsService extends BaseService {
     body: PatchPost
   }): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, PostsService.PostsIdPatchPath, 'patch');
+    const rb = new RequestBuilder(this.rootUrl, PostsService.PatchPostPath, 'patch');
     if (params) {
 
       rb.path('id', params.id);
@@ -353,11 +353,11 @@ export class PostsService extends BaseService {
    * Update the post with id partially.
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `postsIdPatch$Response()` instead.
+   * To access the full response (for headers, for example), `patchPost$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  postsIdPatch(params: {
+  patchPost(params: {
 
     /**
      * The postId requested by user.
@@ -367,7 +367,7 @@ export class PostsService extends BaseService {
     body: PatchPost
   }): Observable<void> {
 
-    return this.postsIdPatch$Response(params).pipe(
+    return this.patchPost$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }

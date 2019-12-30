@@ -16,7 +16,7 @@ The backend is managed with php/mysql because i got hosting.
 
 Server and client Code is generate from [blg-openapi.yml](./blg-openapi.yml) file at the root
 
-* run `make api_gen_cli` to generate client code.
+* run `make api_gen_cli` to generate client code in [src/app/api](./src/app/api) directory.
 * run `make api_gen_srv` to generate server code.
 * run `make api_gen_doc` to generate markdown documentation.
 
