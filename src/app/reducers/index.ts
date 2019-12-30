@@ -3,7 +3,8 @@ import {
   ActionReducerMap,
   createFeatureSelector,
   createSelector,
-  MetaReducer
+  MetaReducer,
+  Action,
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 
@@ -13,16 +14,34 @@ export interface State {
   strip: {};
   case: {};
 }
-
+export function postsReducer(state, action) {
+  return state;
+}
 export const reducers: ActionReducerMap<State> = {
   // list of posts.
-  posts: (state, action) => state,
+  posts: postsReducer,
   // current opened strip.
-  strip: (state, action) => state,
+  strip: postsReducer,
   // focused or current case.
-  case: (state, action) => state,
+  case: postsReducer,
 };
+export function hmrResetter(reducer: ActionReducer<any>): ActionReducer<any> {
+  console.log('hmrResetter');
+  return (state: State, action) => {
+    return reducer(state, action);
+  };
+}
+export function debugLogger(reducer: ActionReducer<any>): ActionReducer<any> {
+  console.log('debugLogger');
+  return (state: State, action: Action) => {
+    console.group(action.type);
+    console.log('state before', state);
+    const result = reducer(state, action);
+    console.groupEnd();
+    return result;
+  };
+}
 
 export const metaReducers: MetaReducer<State>[] = !environment.production
-  ? []
+  ? [hmrResetter, debugLogger]
   : [];

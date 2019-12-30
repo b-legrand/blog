@@ -1,15 +1,48 @@
 <aside class="blog-sidebar">
-  <div class="blog-hero">
-    <img src="assets/self.svg"
-         [width]="size"
-         [height]="size"
-         [style]="'stroke-color: white;'" />
-    <h1>{{ '3DBLG' }}</h1>
+  <div class="header-container">
+    <div class="page-margins">
+      <img
+        src="assets/self.svg"
+        [width]="size"
+        [height]="size"
+      />
+      <div class="header-tabs">
+        <div class="header-tab">
+          <h1>{{ '3DBLG' }}</h1>
+        </div>
+        <a
+          [routerLink]="['/posts']"
+          class="header-tab"
+        >posts</a>
+        <a
+          [routerLink]="['posts','create']"
+          class="header-tab"
+        >create post</a>
+      </div>
+    </div>
   </div>
   <nav>
-    <ul>
-      <li *ngFor="let link of links">
-        <a [routerLink]="link.route">{{ link.name }}</a></li>
+    <ul class="sidebar-container">
+      <li class="sidebar-button">
+        <a
+          i18n-title="post.links.first"
+          title="post.links.first"
+        >
+          «
+        </a>
+      </li>
+      <li class="sidebar-button">
+        <a [routerLink]="['posts', 'previous']">‹</a>
+      </li>
+      <li class="sidebar-button center-bar">
+        <a [routerLink]="['posts']">{{ currentIndex }} / {{ lastIndex }}</a>
+      </li>
+      <li class="sidebar-button">
+        <a [routerLink]="['posts', 'next']">›</a>
+      </li>
+      <li class="sidebar-button">
+        <a [routerLink]="['posts', 'last']">»</a>
+      </li>
     </ul>
   </nav>
 </aside>

@@ -6,6 +6,7 @@ import { StripComponent } from './components/strip/strip.component';
 import { CaseComponent } from './components/case/case.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
 import { CoreModule } from '../core/core.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { CoreModule } from '../core/core.module';
     PostPageComponent,
   ],
   exports: [PostComponent, StripComponent, CaseComponent, PostPageComponent],
-  imports: [CommonModule, CoreModule],
+  imports: [CommonModule, CoreModule, RouterModule],
   entryComponents: [PostPageComponent],
 })
 export class PostModule {}

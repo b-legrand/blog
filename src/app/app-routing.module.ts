@@ -9,12 +9,25 @@ import { PostPageComponent } from './post/components/post-page/post-page.compone
 const routes: Routes = [
   {
     path: 'posts',
-    pathMatch: 'full',
-    component:  PostsPageComponent,
+    component: PostsPageComponent,
+    children: [{ path: '', pathMatch: 'full', component: PostPageComponent }],
   },
   {
-    path: 'post/:slug',
-    component:  PostPageComponent,
+    path: 'posts/first',
+    component: PostPageComponent,
+  },
+  {
+    path: 'posts/create',
+    component: PostPageComponent,
+  },
+  {
+    path: 'posts/last',
+    component: PostPageComponent,
+  },
+  {
+    path: 'posts/:slug',
+    component: PostPageComponent,
+    children: [{ path: 'reactions', pathMatch: 'full', component: PostPageComponent }],
   },
   {
     path: '',

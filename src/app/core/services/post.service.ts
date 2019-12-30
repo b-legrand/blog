@@ -1,8 +1,9 @@
 import { Injectable, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+
 import { Post } from '../../post/models/post.model';
 import { posts } from '../__mocks__/data';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class PostService implements OnInit {

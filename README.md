@@ -1,6 +1,6 @@
 # Blog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2.
+This project is an attempt at recreating a "3D BD Blog"
 
 ## Features
 
@@ -9,6 +9,16 @@ It is a static/dynamic /server side rendered blog.
 There's a database for storing posts based on realworld app :
 
 Each post is either a strip/bd blog with cases or a full blog text post in markdown
+
+## API (first)
+
+The backend is managed with php/mysql because i got hosting.
+
+Server and client Code is generate from [blg-openapi.yml](./blg-openapi.yml) file at the root
+
+* run `make api_gen_cli` to generate client code in [src/app/api](./src/app/api) directory.
+* run `make api_gen_srv` to generate server code.
+* run `make api_gen_doc` to generate markdown documentation.
 
 ## Angular
 
@@ -26,13 +36,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ### Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit tests via [Jest](https://jestjs.io/docs/en/).
 
 ### Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## API
-
-The backend is managed with php/mysql because i got hosting.
-
+Run `ng e2e` to execute the end-to-end tests via [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html).

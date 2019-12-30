@@ -1,11 +1,29 @@
 @import 'sass-breakpoints/index';
 
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+// color palette
+:root {
+  --blue-color: #5294e2;
+  --grey-color: #d8d9df;
+  --back-color: #32343d;
+  --dark-color: #272931;
+  --light-color: white;
+  --dark-alt-color: #3b271e;
+  --green-color: #52e2a1;
+  --warn-color: #e2ad52;
+  --error-color: #e26652;
+  --yolo-color: #e2d152;
+  --purp-color: #e25274;
+}
 /* You can add global styles to this file, and also import other style files */
 * {
   margin: 0;
   padding: 0;
   font-family: 'Noto Sans', sans-serif;
+  outline: none;
 }
+
 li {
   list-style-type: none;
 }
@@ -13,4 +31,29 @@ li {
 pre,
 code {
   font-family: 'Inconsolata', 'Consolas', monospace;
+  background-color: var(--back-color);
+  color: var(--white-color);
+}
+// buttons
+button {
+  background-color: var(--back-color);
+  color: var(--grey-color);
+  padding: 0 1em;
+  border-radius: 0.5em;
+}
+// links
+a {
+  &:link,
+  &:active,
+  &:focus,
+  &:visited {
+    color: var(--grey-color);
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.page-margins {
+  margin: 0 8%;
 }
