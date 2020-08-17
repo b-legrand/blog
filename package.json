@@ -11,7 +11,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test:watch": "jest --watch",
-    "api": "ng-openapi-gen --input blg-openapi.yml --output src/app/api"
+    "api": "ng-openapi-gen --input blg-openapi.yml --output src/app/api",
+    "dev:ssr": "ng run blog:serve-ssr",
+    "serve:ssr": "node dist/blog-server/main.js",
+    "build:ssr": "ng build --prod && ng run blog:server:production",
+    "prerender": "ng run blog:prerender"
   },
   "private": true,
   "dependencies": {
@@ -34,9 +38,11 @@
     "@ngrx/schematics": "^10.0.0",
     "@ngrx/store": "^10.0.0",
     "@ngrx/store-devtools": "^10.0.0",
+    "@nguniversal/express-engine": "^10.0.2",
     "ajv": "^6.12.4",
     "babylonjs": "^4.1.0",
     "core-js": "^3.6.5",
+    "express": "^4.15.2",
     "faker": "^4.1.0",
     "js-yaml": "^3.14.0",
     "marked": "^1.1.1",
@@ -53,6 +59,8 @@
     "@angular/compiler-cli": "~10.0.9",
     "@angular/language-service": "~10.0.9",
     "@cypress/webpack-preprocessor": "5.4.4",
+    "@nguniversal/builders": "^10.0.2",
+    "@types/express": "^4.17.0",
     "@types/faker": "^4.1.12",
     "@types/jasmine": "~3.5.12",
     "@types/jasminewd2": "~2.0.8",
